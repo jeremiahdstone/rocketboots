@@ -1,0 +1,47 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "I I",
+        "R R",
+        "F F"
+    ],
+    "key": {
+        "I": "minecraft:iron_ingot",
+        "R": "minecraft:redstone",
+        "F": "minecraft:blaze_powder"
+    },
+    "result": {
+        "id": "minecraft:leather_boots",
+        "count": 1,
+        "components": {
+            "minecraft:item_name": {
+                "text": "Rocket Boots",
+                "color": "gold",
+                "italic": false
+            },
+            "minecraft:rarity": "rare",
+            "minecraft:lore": [
+                {
+                    "text": "Experimental propulsion equipment.",
+                    "color": "gray",
+                    "italic": false
+                }
+            ],
+            "minecraft:trim": {
+                "pattern": "minecraft:silence",
+                "material": "minecraft:redstone"
+            },
+            "minecraft:dyed_color": 3487040,
+            "minecraft:custom_data": {
+                "rocket_boots": true
+            },
+            "minecraft:tooltip_display": {
+                "hidden_components": [
+                    "minecraft:trim",
+                    "minecraft:dyed_color"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "D D",
+    "R R",
+    "F F"
+  ],
+  "key": {
+    "D": "minecraft:netherite_ingot",
+    "R": "minecraft:diamond",
+    "F": "minecraft:blaze_powder"
+  },
+  "result": {
+    "id": "minecraft:leather_boots",
+    "count": 1,
+    "components": {
+      "minecraft:item_name": {
+        "text": "Advanced Rocket Boots",
+        "color": "aqua",
+        "italic": false
+      },
+      "minecraft:rarity": "epic",
+      "minecraft:lore": [
+        {
+          "text": "High-efficiency propulsion equipment.",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "minecraft:trim": {
+        "pattern": "minecraft:silence",
+        "material": "minecraft:diamond"
+      },
+      "minecraft:dyed_color": 3487040,
+      "minecraft:custom_data": {
+        "rocket_boots": true,
+        "rocket_tier": 2
+      },
+      "minecraft:tooltip_display": {
+        "hidden_components": [
+          "minecraft:trim",
+          "minecraft:dyed_color"
+        ]
+      }
+    }
+  }
+}

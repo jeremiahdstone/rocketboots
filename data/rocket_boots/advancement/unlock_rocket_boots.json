@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "found_redstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:redstone"
+          }
+        ]
+      }
+    },
+    "found_blaze_powder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:blaze_powder"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "found_redstone",
+      "found_blaze_powder"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rocket_boots:rocket_boots"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "found_diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:diamond"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rocket_boots:rocket_boots_advanced"
+    ]
+  }
+}

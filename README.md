@@ -1,6 +1,6 @@
 # Rocket Boots
 
-A Minecraft Java datapack that adds two craftable pairs of rocket boots. While wearing a pair, jump while airborne to thrust upward.
+A Minecraft Java datapack that adds two craftable pairs of rocket boots. While wearing a pair, hold jump to thrust upward.
 
 ## Requirements
 

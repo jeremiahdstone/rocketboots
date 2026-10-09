@@ -39,7 +39,7 @@ F F
 
 ### Advanced Rocket Boots
 
-Unlock the recipe by picking up a diamond.
+Unlock the recipe by picking up a diamond, blaze powder, or netherite ingot.
 
 ```text
 N N

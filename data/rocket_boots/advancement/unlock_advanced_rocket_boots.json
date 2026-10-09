@@ -9,8 +9,35 @@
           }
         ]
       }
+    },
+    "found_blaze_powder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:blaze_powder"
+          }
+        ]
+      }
+    },
+    "found_netherite_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_ingot"
+          }
+        ]
+      }
     }
   },
+  "requirements": [
+    [
+      "found_diamond",
+      "found_blaze_powder",
+      "found_netherite_ingot"
+    ]
+  ],
   "rewards": {
     "recipes": [
       "rocket_boots:rocket_boots_advanced"

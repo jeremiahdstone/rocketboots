@@ -51,7 +51,7 @@ F F
 - `D`: Diamond
 - `F`: Blaze powder
 
-## Give functions
+## Give Functions
 
 Run these commands as a player:
 
@@ -59,3 +59,14 @@ Run these commands as a player:
 /function rocket_boots:give
 /function rocket_boots:give_advanced
 ```
+
+## Configuration Functions
+
+- `/function rocket_boots:refill` restores both boot tiers for the executing player. Run as a player.
+- `/function rocket_boots:refill_all` restores both boot tiers for all online players.
+- `/function rocket_boots:config/fuel_on` enables fuel consumption.
+- `/function rocket_boots:config/fuel_off` disables fuel consumption, allowing unlimited thrust while preserving stored fuel.
+
+Fuel consumption is enabled by default. Its setting persists across `/reload`.
+
+These functions control whether thrust consumes fuel. When depletion is disabled, fuel is preserved and thrust remains available even when the HUD would otherwise be empty.

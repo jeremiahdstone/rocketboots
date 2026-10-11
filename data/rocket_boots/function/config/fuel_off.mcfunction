@@ -1,0 +1,1 @@
+scoreboard players set #fuel_enabled rocket_fuel_mode 0

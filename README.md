@@ -19,7 +19,7 @@ A Minecraft Java datapack that adds two craftable pairs of rocket boots. While w
 | Rocket Boots | 40 ticks | 1 fuel per 10 idle ticks | Orange flames |
 | Advanced Rocket Boots | 80 ticks | 2x the standard recharge rate | Blue flames |
 
-Thrust activates while the wearer is airborne and holding the jump input. Fuel is tracked per player for each tier and recharges whenever the player is not thrusting, even if the boots are not currently worn. The action bar shows remaining fuel while it is below full and changes color as fuel runs low.
+Thrust activates while the wearer is pressing the jump button. Fuel is tracked per player for each tier and recharges whenever the player is not thrusting, even if the boots are not currently worn. The action bar shows remaining fuel while it is below full and changes color as fuel runs low.
 
 ## Recipes
 

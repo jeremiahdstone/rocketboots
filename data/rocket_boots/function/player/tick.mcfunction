@@ -1,22 +1,33 @@
 # Stop propulsion if this player was thrusting on the previous tick
 execute if score @s rocket_active matches 1 run effect clear @s minecraft:levitation
+execute if score @s rocket_gravity_active matches 1 run attribute @s minecraft:gravity modifier remove rocket_boots:underwater_thrust
+execute if score @s rocket_gravity_active matches 1 run scoreboard players set @s rocket_gravity_active 0
 
 # Initialize this player's fuel counters
 execute unless score @s rocket_thrust matches 0..40 run scoreboard players set @s rocket_thrust 0
 execute unless score @s rocket_regen_clock matches 0..19 run scoreboard players set @s rocket_regen_clock 0
 execute unless score @s rocket_thrust_advanced matches 0..80 run scoreboard players set @s rocket_thrust_advanced 0
 execute unless score @s rocket_regen_advanced matches 0..19 run scoreboard players set @s rocket_regen_advanced 0
+execute unless score @s rocket_jump_held matches 0..1 run scoreboard players set @s rocket_jump_held 0
+execute unless score @s rocket_boost_armed matches 0..1 run scoreboard players set @s rocket_boost_armed 0
+execute unless score @s rocket_gravity_active matches 0..1 run scoreboard players set @s rocket_gravity_active 0
+
+# Arm thrust only on a fresh jump press while airborne
+execute if predicate rocket_boots:is_airborne if predicate rocket_boots:jump_pressed unless score @s rocket_jump_held matches 1 run scoreboard players set @s rocket_boost_armed 1
+execute unless predicate rocket_boots:is_airborne run scoreboard players set @s rocket_boost_armed 0
+execute if predicate rocket_boots:jump_pressed run scoreboard players set @s rocket_jump_held 1
+execute unless predicate rocket_boots:jump_pressed run scoreboard players set @s rocket_jump_held 0
 
 # Reset this player's activation state
 scoreboard players set @s rocket_active 0
 
 # Activate Tier II boots while jumping, up to 80 thrust ticks when fuel depletion is enabled
-execute if items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score #fuel_enabled rocket_fuel_mode matches 0 run function rocket_boots:player/thrust
-execute if items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score #fuel_enabled rocket_fuel_mode matches 1 if score @s rocket_thrust_advanced matches ..79 run function rocket_boots:player/thrust
+execute if items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score @s rocket_boost_armed matches 1 if score #fuel_enabled rocket_fuel_mode matches 0 run function rocket_boots:player/thrust
+execute if items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score @s rocket_boost_armed matches 1 if score #fuel_enabled rocket_fuel_mode matches 1 if score @s rocket_thrust_advanced matches ..79 run function rocket_boots:player/thrust
 
 # Activate standard boots while jumping, up to 40 thrust ticks when fuel depletion is enabled
-execute if items entity @s armor.feet minecraft:leather_boots[minecraft:custom_data~{rocket_boots:true}] unless items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score #fuel_enabled rocket_fuel_mode matches 0 run function rocket_boots:player/thrust
-execute if items entity @s armor.feet minecraft:leather_boots[minecraft:custom_data~{rocket_boots:true}] unless items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score #fuel_enabled rocket_fuel_mode matches 1 if score @s rocket_thrust matches ..39 run function rocket_boots:player/thrust
+execute if items entity @s armor.feet minecraft:leather_boots[minecraft:custom_data~{rocket_boots:true}] unless items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score @s rocket_boost_armed matches 1 if score #fuel_enabled rocket_fuel_mode matches 0 run function rocket_boots:player/thrust
+execute if items entity @s armor.feet minecraft:leather_boots[minecraft:custom_data~{rocket_boots:true}] unless items entity @s armor.feet minecraft:leather_boots[minecraft:item_name={text:"Advanced Rocket Boots",color:"aqua",italic:false}] if predicate rocket_boots:is_jumping if score @s rocket_boost_armed matches 1 if score #fuel_enabled rocket_fuel_mode matches 1 if score @s rocket_thrust matches ..39 run function rocket_boots:player/thrust
 
 # Standard fuel regenerates at 1 unit per 10 idle ticks
 execute if score #fuel_enabled rocket_fuel_mode matches 1 if score @s rocket_active matches 0 if score @s rocket_thrust matches 1..40 run scoreboard players add @s rocket_regen_clock 1
